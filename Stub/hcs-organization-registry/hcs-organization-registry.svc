@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Stub.hcs_organization_registry.hcs_organization_registry" CodeBehind="hcs-organization-registry.svc.cs" %>

@@ -73,6 +73,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="hcs-organization-registry\hcs-organization-registry.svc" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -90,7 +91,10 @@
       <DependentUpon>hcs-nsi.svc</DependentUpon>
     </Compile>
     <Compile Include="hcs-nsi\Ihcs-nsi.cs" />
-    <Compile Include="Model\Helper.cs" />
+    <Compile Include="hcs-organization-registry\hcs-organization-registry.svc.cs">
+      <DependentUpon>hcs-organization-registry.svc</DependentUpon>
+    </Compile>
+    <Compile Include="hcs-organization-registry\IRegOrgPortsType.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

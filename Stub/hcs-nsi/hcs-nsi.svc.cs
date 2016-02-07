@@ -10,7 +10,6 @@ using Ploeh.AutoFixture.AutoMoq;
 using Ploeh.AutoFixture.Kernel;
 using System.Xml;
 using Moq;
-using Stub.Model;
 
 
 namespace Stub.hcs_nsi

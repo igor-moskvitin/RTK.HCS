@@ -52,6 +52,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\OrgRegistry\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -92,12 +97,47 @@
     <None Include="Service References\nsi\Stub.Client.nsi.RequestHeader.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\OrgRegistry\hcs-organization-registry.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrgRegistry\hcs-organization-registry1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrgRegistry\hcs-organization-registry2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrgRegistry\hcs_organization_registry.wsdl" />
+    <None Include="Service References\OrgRegistry\Stub.Client.OrgRegistry.exportDataProviderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgRegistry\Stub.Client.OrgRegistry.exportDataProviderResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgRegistry\Stub.Client.OrgRegistry.exportOrgRegistryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgRegistry\Stub.Client.OrgRegistry.exportOrgRegistryResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgRegistry\Stub.Client.OrgRegistry.importDataProviderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgRegistry\Stub.Client.OrgRegistry.ImportResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgRegistry\Stub.Client.OrgRegistry.importSubsidiaryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgRegistry\Stub.Client.OrgRegistry.ResultHeader.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\nsi\" />
+    <WCFMetadataStorage Include="Service References\OrgRegistry\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\nsi\hcs-nsi.disco" />
@@ -110,6 +150,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\nsi\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OrgRegistry\hcs-organization-registry.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OrgRegistry\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OrgRegistry\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OrgRegistry\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

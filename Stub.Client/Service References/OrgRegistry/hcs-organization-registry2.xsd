@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/organizations-registry/" elementFormDefault="qualified" targetNamespace="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/organizations-registry/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:3474/hcs-organization-registry/hcs-organization-registry.svc?xsd=xsd1" namespace="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" />
+  <xs:element name="exportOrgRegistryRequest">
+    <xs:complexType>
+      <xs:complexContent mixed="false">
+        <xs:extension xmlns:q1="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" base="q1:BaseType">
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="SearchCriteria">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:element minOccurs="0" maxOccurs="1" ref="q1:KPP" />
+                    <xs:element minOccurs="0" maxOccurs="1" ref="q1:OGRN" />
+                    <xs:element minOccurs="0" maxOccurs="1" ref="q1:OGRNIP" />
+                    <xs:element minOccurs="0" maxOccurs="1" ref="q1:orgRootEntityGUID" />
+                    <xs:element minOccurs="0" maxOccurs="1" ref="q1:orgVersionGUID" />
+                  </xs:choice>
+                  <xs:element minOccurs="0" maxOccurs="1" name="isRegistered" type="xs:boolean" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="lastEditingDateFrom" type="xs:date" />
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ISRequestHeader">
+    <xs:complexType>
+      <xs:complexContent mixed="false">
+        <xs:extension xmlns:q2="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" base="q2:HeaderType" />
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="exportOrgRegistryResult">
+    <xs:complexType>
+      <xs:complexContent mixed="false">
+        <xs:extension xmlns:q3="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" base="q3:BaseType">
+          <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+              <xs:element minOccurs="0" maxOccurs="1" ref="q3:ErrorMessage" />
+              <xs:element minOccurs="0" maxOccurs="1" name="OrgData" type="tns:exportOrgRegistryResultType" />
+            </xs:choice>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="exportOrgRegistryResultType">
+    <xs:sequence>
+      <xs:element xmlns:q4="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" minOccurs="0" maxOccurs="1" ref="q4:orgRootEntityGUID" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OrgVersion">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q5="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" minOccurs="0" maxOccurs="1" ref="q5:orgVersionGUID" />
+            <xs:element minOccurs="1" maxOccurs="1" name="lastEditingDate" type="xs:date" />
+            <xs:element minOccurs="1" maxOccurs="1" name="IsActual" type="xs:boolean" />
+            <xs:choice minOccurs="1" maxOccurs="1">
+              <xs:element xmlns:q6="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" minOccurs="0" maxOccurs="1" name="Entrp" type="q6:EntpsType" />
+              <xs:element xmlns:q7="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" minOccurs="0" maxOccurs="1" name="Legal" type="q7:LegalType" />
+              <xs:element minOccurs="0" maxOccurs="1" name="Subsidiary">
+                <xs:complexType>
+                  <xs:complexContent mixed="false">
+                    <xs:extension xmlns:q8="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" base="q8:SubsidiaryType">
+                      <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1" name="VersionNumber" type="xs:integer" />
+                        <xs:element minOccurs="0" maxOccurs="1" name="StatusVersion" type="xs:string" />
+                        <xs:element minOccurs="0" maxOccurs="1" name="ParentOrg">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element minOccurs="0" maxOccurs="1" ref="q8:RegOrgVersion" />
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:extension>
+                  </xs:complexContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:choice>
+            <xs:element minOccurs="0" maxOccurs="1" name="registryOrganizationStatus">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="P" />
+                  <xs:enumeration value="C" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:q9="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" minOccurs="0" maxOccurs="unbounded" name="organizationRoles" type="q9:nsiRef" />
+      <xs:element minOccurs="0" maxOccurs="1" name="isRegistered" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="importDataProviderRequest">
+    <xs:complexType>
+      <xs:complexContent mixed="false">
+        <xs:extension xmlns:q10="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" base="q10:BaseType">
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="DataProvider">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" ref="q10:TransportGUID" />
+                  <xs:choice minOccurs="1" maxOccurs="1">
+                    <xs:element minOccurs="0" maxOccurs="1" name="AllocateSenderID">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" maxOccurs="1" ref="q10:RegOrg" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" name="RemoveSenderID">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" maxOccurs="1" name="SenderID" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:choice>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="exportDataProviderRequest">
+    <xs:complexType>
+      <xs:complexContent mixed="false">
+        <xs:extension xmlns:q11="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" base="q11:BaseType">
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="IsActual" type="xs:boolean" />
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="exportDataProviderResult">
+    <xs:complexType>
+      <xs:complexContent mixed="false">
+        <xs:extension xmlns:q12="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" base="q12:BaseType">
+          <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+              <xs:element minOccurs="0" maxOccurs="1" ref="q12:ErrorMessage" />
+              <xs:element minOccurs="0" maxOccurs="1" name="exportDataProviderResult" type="tns:exportDataProviderResultType" />
+            </xs:choice>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="exportDataProviderResultType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="DataProviderGUID" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsActual" type="xs:boolean" />
+      <xs:element xmlns:q13="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" minOccurs="0" maxOccurs="1" ref="q13:RegOrg" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="importSubsidiaryRequest">
+    <xs:complexType>
+      <xs:complexContent mixed="false">
+        <xs:extension xmlns:q14="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" base="q14:BaseType">
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="Subsidiary">
+              <xs:complexType>
+                <xs:complexContent mixed="false">
+                  <xs:extension base="q14:SubsidiaryImportType">
+                    <xs:sequence>
+                      <xs:element minOccurs="0" maxOccurs="1" ref="q14:TransportGUID" />
+                    </xs:sequence>
+                  </xs:extension>
+                </xs:complexContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

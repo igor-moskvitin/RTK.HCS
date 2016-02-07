@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="hcs_organization_registry" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:3474/hcs-organization-registry/hcs-organization-registry.svc?xsd=xsd0" namespace="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/organizations-registry/" />
+      <xsd:import schemaLocation="http://localhost:3474/hcs-organization-registry/hcs-organization-registry.svc?xsd=xsd1" namespace="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" />
+      <xsd:import schemaLocation="http://localhost:3474/hcs-organization-registry/hcs-organization-registry.svc?xsd=xsd2" namespace="http://www.w3.org/2000/09/xmldsig#" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="exportOrgRegistryRequest1">
+    <wsdl:part xmlns:q1="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/organizations-registry/" name="exportOrgRegistryRequest" element="q1:exportOrgRegistryRequest" />
+  </wsdl:message>
+  <wsdl:message name="exportOrgRegistryRequest1_Headers">
+    <wsdl:part xmlns:q2="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/organizations-registry/" name="ISRequestHeader" element="q2:ISRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="exportOrgRegistryResponse">
+    <wsdl:part xmlns:q3="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/organizations-registry/" name="exportOrgRegistryResult" element="q3:exportOrgRegistryResult" />
+  </wsdl:message>
+  <wsdl:message name="exportOrgRegistryResponse_Headers">
+    <wsdl:part xmlns:q4="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" name="ResultHeader" element="q4:ResultHeader" />
+  </wsdl:message>
+  <wsdl:message name="importDataProviderRequest1">
+    <wsdl:part xmlns:q5="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/organizations-registry/" name="importDataProviderRequest" element="q5:importDataProviderRequest" />
+  </wsdl:message>
+  <wsdl:message name="importDataProviderRequest1_Headers">
+    <wsdl:part xmlns:q6="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/organizations-registry/" name="ISRequestHeader" element="q6:ISRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="importDataProviderResponse">
+    <wsdl:part xmlns:q7="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" name="ImportResult" element="q7:ImportResult" />
+  </wsdl:message>
+  <wsdl:message name="importDataProviderResponse_Headers">
+    <wsdl:part xmlns:q8="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" name="ResultHeader" element="q8:ResultHeader" />
+  </wsdl:message>
+  <wsdl:message name="exportDataProviderRequest1">
+    <wsdl:part xmlns:q9="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/organizations-registry/" name="exportDataProviderRequest" element="q9:exportDataProviderRequest" />
+  </wsdl:message>
+  <wsdl:message name="exportDataProviderRequest1_Headers">
+    <wsdl:part xmlns:q10="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/organizations-registry/" name="ISRequestHeader" element="q10:ISRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="exportDataProviderResponse">
+    <wsdl:part xmlns:q11="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/organizations-registry/" name="exportDataProviderResult" element="q11:exportDataProviderResult" />
+  </wsdl:message>
+  <wsdl:message name="exportDataProviderResponse_Headers">
+    <wsdl:part xmlns:q12="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" name="ResultHeader" element="q12:ResultHeader" />
+  </wsdl:message>
+  <wsdl:message name="importSubsidiaryRequest1">
+    <wsdl:part xmlns:q13="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/organizations-registry/" name="importSubsidiaryRequest" element="q13:importSubsidiaryRequest" />
+  </wsdl:message>
+  <wsdl:message name="importSubsidiaryRequest1_Headers">
+    <wsdl:part xmlns:q14="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/organizations-registry/" name="ISRequestHeader" element="q14:ISRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="importSubsidiaryResponse">
+    <wsdl:part xmlns:q15="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" name="ImportResult" element="q15:ImportResult" />
+  </wsdl:message>
+  <wsdl:message name="importSubsidiaryResponse_Headers">
+    <wsdl:part xmlns:q16="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" name="ResultHeader" element="q16:ResultHeader" />
+  </wsdl:message>
+  <wsdl:portType name="IRegOrgPortsType">
+    <wsdl:operation name="exportOrgRegistry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegOrgPortsType/exportOrgRegistry" name="exportOrgRegistryRequest1" message="tns:exportOrgRegistryRequest1" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegOrgPortsType/exportOrgRegistryResponse" name="exportOrgRegistryResponse" message="tns:exportOrgRegistryResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="importDataProvider">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegOrgPortsType/importDataProvider" name="importDataProviderRequest1" message="tns:importDataProviderRequest1" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegOrgPortsType/importDataProviderResponse" name="importDataProviderResponse" message="tns:importDataProviderResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="exportDataProvider">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegOrgPortsType/exportDataProvider" name="exportDataProviderRequest1" message="tns:exportDataProviderRequest1" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegOrgPortsType/exportDataProviderResponse" name="exportDataProviderResponse" message="tns:exportDataProviderResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="importSubsidiary">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegOrgPortsType/importSubsidiary" name="importSubsidiaryRequest1" message="tns:importSubsidiaryRequest1" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegOrgPortsType/importSubsidiaryResponse" name="importSubsidiaryResponse" message="tns:importSubsidiaryResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IRegOrgPortsType" type="tns:IRegOrgPortsType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="exportOrgRegistry">
+      <soap:operation soapAction="http://tempuri.org/IRegOrgPortsType/exportOrgRegistry" style="document" />
+      <wsdl:input name="exportOrgRegistryRequest1">
+        <soap:header message="tns:exportOrgRegistryRequest1_Headers" part="ISRequestHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="exportOrgRegistryResponse">
+        <soap:header message="tns:exportOrgRegistryResponse_Headers" part="ResultHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="importDataProvider">
+      <soap:operation soapAction="http://tempuri.org/IRegOrgPortsType/importDataProvider" style="document" />
+      <wsdl:input name="importDataProviderRequest1">
+        <soap:header message="tns:importDataProviderRequest1_Headers" part="ISRequestHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="importDataProviderResponse">
+        <soap:header message="tns:importDataProviderResponse_Headers" part="ResultHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="exportDataProvider">
+      <soap:operation soapAction="http://tempuri.org/IRegOrgPortsType/exportDataProvider" style="document" />
+      <wsdl:input name="exportDataProviderRequest1">
+        <soap:header message="tns:exportDataProviderRequest1_Headers" part="ISRequestHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="exportDataProviderResponse">
+        <soap:header message="tns:exportDataProviderResponse_Headers" part="ResultHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="importSubsidiary">
+      <soap:operation soapAction="http://tempuri.org/IRegOrgPortsType/importSubsidiary" style="document" />
+      <wsdl:input name="importSubsidiaryRequest1">
+        <soap:header message="tns:importSubsidiaryRequest1_Headers" part="ISRequestHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="importSubsidiaryResponse">
+        <soap:header message="tns:importSubsidiaryResponse_Headers" part="ResultHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="hcs_organization_registry">
+    <wsdl:port name="BasicHttpBinding_IRegOrgPortsType" binding="tns:BasicHttpBinding_IRegOrgPortsType">
+      <soap:address location="http://localhost:3474/hcs-organization-registry/hcs-organization-registry.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

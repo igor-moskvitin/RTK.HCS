@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Stub.Client.nsi;
+using Stub.Client.OrgRegistry;
 
 namespace Stub.Client
 {
@@ -19,6 +20,12 @@ namespace Stub.Client
                 var result = client.exportNsiList(ref header, request);
                 Console.WriteLine("result id is {0}", result.Id);
             }
+
+            using (RegOrgPortsTypeClient client1 = new RegOrgPortsTypeClient())
+            {
+                //will be implemented later
+            }
+
             Console.WriteLine("Client will be terminated.");
             Console.ReadKey();
         }

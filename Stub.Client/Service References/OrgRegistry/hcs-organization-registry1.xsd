@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" elementFormDefault="qualified" targetNamespace="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:3474/hcs-organization-registry/hcs-organization-registry.svc?xsd=xsd2" namespace="http://www.w3.org/2000/09/xmldsig#" />
+  <xs:complexType name="BaseType">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://www.w3.org/2000/09/xmldsig#" minOccurs="0" maxOccurs="1" ref="q1:Signature" />
+    </xs:sequence>
+    <xs:attribute name="Id" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="BaseAsyncResponseType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseType">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="RequestState" type="xs:byte" />
+          <xs:element minOccurs="0" maxOccurs="1" name="MessageGUID" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KPP" type="xs:string" />
+  <xs:element name="OGRN" type="xs:string" />
+  <xs:element name="OGRNIP" type="xs:string" />
+  <xs:element name="orgRootEntityGUID" type="xs:string" />
+  <xs:element name="orgVersionGUID" type="xs:string" />
+  <xs:complexType name="HeaderType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MessageGUID" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ErrorMessage" type="tns:ErrorMessageType" />
+  <xs:complexType name="ErrorMessageType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="StackTrace" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EntpsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Surname" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FirstName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Patronymic" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Sex">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="M" />
+            <xs:enumeration value="F" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="OGRNIP" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="StateRegistrationDate" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="INN" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LegalType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="ShortName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FullName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CommercialName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OGRN" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="StateRegistrationDate" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="INN" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="KPP" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OKOPF" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Address" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FIASHouseGuid" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ActivityEndDate" type="xs:date" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SubsidiaryType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="FullName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShortName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OGRN" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="INN" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="KPP" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OKOPF" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Address" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FIASHouseGuid" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ActivityEndDate" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SourceName">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="Date" type="xs:date" use="required" />
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegOrgVersion" type="tns:RegOrgVersionType" />
+  <xs:complexType name="RegOrgVersionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="orgVersionGUID" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="nsiRef">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Code" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="GUID" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResultHeader">
+    <xs:complexType>
+      <xs:complexContent mixed="false">
+        <xs:extension base="tns:HeaderType" />
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransportGUID" type="xs:string" />
+  <xs:element name="RegOrg" type="tns:RegOrgType" />
+  <xs:complexType name="RegOrgType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="orgRootEntityGUID" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ImportResult">
+    <xs:complexType>
+      <xs:complexContent mixed="false">
+        <xs:extension base="tns:BaseType">
+          <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+              <xs:element minOccurs="0" maxOccurs="1" name="CommonResult" type="tns:CommonResultType" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="tns:ErrorMessageType" />
+            </xs:choice>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CommonResultType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="GUID" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TransportGUID" type="xs:string" />
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element minOccurs="0" maxOccurs="1" name="Error">
+          <xs:complexType>
+            <xs:complexContent mixed="false">
+              <xs:extension base="tns:ErrorMessageType" />
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="UniqueNumber" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="UpdateDate" type="xs:dateTime" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SubsidiaryImportType">
+    <xs:sequence>
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element minOccurs="0" maxOccurs="1" name="CreateSubsidiary">
+          <xs:complexType>
+            <xs:complexContent mixed="false">
+              <xs:extension base="tns:SubsidiaryType">
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" name="orgVersionGUID" type="xs:string" />
+                </xs:sequence>
+              </xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="UpdateSubsidiary">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="orgVersionGUID" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="INN" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="OKOPF" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="Address" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="FIASHouseGuid" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ActivityEndDate" type="xs:date" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
