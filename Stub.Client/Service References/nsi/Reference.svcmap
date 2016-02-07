@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="745934e8-f633-458c-bd0b-efa03960de32" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:3474/hcs-nsi/hcs-nsi.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="hcs-nsi.xsd" MetadataType="Schema" ID="7c081159-a65f-41de-82a3-a949fd6eb510" SourceId="1" SourceUrl="http://localhost:3474/hcs-nsi/hcs-nsi.svc?xsd=xsd1" />
+    <MetadataFile FileName="hcs-nsi.disco" MetadataType="Disco" ID="08f2806a-03a6-4b17-88d9-78463711b68c" SourceId="1" SourceUrl="http://localhost:3474/hcs-nsi/hcs-nsi.svc?disco" />
+    <MetadataFile FileName="hcs-nsi1.xsd" MetadataType="Schema" ID="c3e38417-a7e4-414e-b5c4-4f9c40f973e0" SourceId="1" SourceUrl="http://localhost:3474/hcs-nsi/hcs-nsi.svc?xsd=xsd0" />
+    <MetadataFile FileName="hcs-nsi2.xsd" MetadataType="Schema" ID="5f8bf3d4-382e-474a-917e-7e1dcb4c45d8" SourceId="1" SourceUrl="http://localhost:3474/hcs-nsi/hcs-nsi.svc?xsd=xsd2" />
+    <MetadataFile FileName="Nsi.wsdl" MetadataType="Wsdl" ID="0d82137d-2da9-460d-ad83-e017e1f98799" SourceId="1" SourceUrl="http://localhost:3474/hcs-nsi/hcs-nsi.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

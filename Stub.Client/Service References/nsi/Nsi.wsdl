@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Nsi" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:3474/hcs-nsi/hcs-nsi.svc?xsd=xsd0" namespace="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/nsi/" />
+      <xsd:import schemaLocation="http://localhost:3474/hcs-nsi/hcs-nsi.svc?xsd=xsd1" namespace="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" />
+      <xsd:import schemaLocation="http://localhost:3474/hcs-nsi/hcs-nsi.svc?xsd=xsd2" namespace="http://www.w3.org/2000/09/xmldsig#" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="exportNsiListRequest1">
+    <wsdl:part xmlns:q1="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/nsi/" name="exportNsiListRequest" element="q1:exportNsiListRequest" />
+  </wsdl:message>
+  <wsdl:message name="exportNsiListRequest1_Headers">
+    <wsdl:part xmlns:q2="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" name="RequestHeader" element="q2:RequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="exportNsiListResponse">
+    <wsdl:part xmlns:q3="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/nsi/" name="exportNsiListResult" element="q3:exportNsiListResult" />
+  </wsdl:message>
+  <wsdl:message name="exportNsiListResponse_Headers">
+    <wsdl:part xmlns:q4="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" name="RequestHeader" element="q4:RequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="exportNsiItemRequest1">
+    <wsdl:part xmlns:q5="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/nsi/" name="exportNsiItemRequest" element="q5:exportNsiItemRequest" />
+  </wsdl:message>
+  <wsdl:message name="exportNsiItemRequest1_Headers">
+    <wsdl:part xmlns:q6="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" name="RequestHeader" element="q6:RequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="exportNsiItemResponse">
+    <wsdl:part xmlns:q7="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/nsi/" name="exportNsiItemResult" element="q7:exportNsiItemResult" />
+  </wsdl:message>
+  <wsdl:message name="exportNsiItemResponse_Headers">
+    <wsdl:part xmlns:q8="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" name="RequestHeader" element="q8:RequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="importAdditionalServicesRequest1">
+    <wsdl:part xmlns:q9="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/nsi/" name="importAdditionalServicesRequest" element="q9:importAdditionalServicesRequest" />
+  </wsdl:message>
+  <wsdl:message name="importAdditionalServicesRequest1_Headers">
+    <wsdl:part xmlns:q10="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" name="RequestHeader" element="q10:RequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="importAdditionalServicesResponse">
+    <wsdl:part xmlns:q11="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" name="ImportResult" element="q11:ImportResult" />
+  </wsdl:message>
+  <wsdl:message name="importAdditionalServicesResponse_Headers">
+    <wsdl:part xmlns:q12="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" name="RequestHeader" element="q12:RequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="importMunicipalServicesRequest1">
+    <wsdl:part xmlns:q13="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/nsi/" name="importMunicipalServicesRequest" element="q13:importMunicipalServicesRequest" />
+  </wsdl:message>
+  <wsdl:message name="importMunicipalServicesRequest1_Headers">
+    <wsdl:part xmlns:q14="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" name="RequestHeader" element="q14:RequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="importMunicipalServicesResponse">
+    <wsdl:part xmlns:q15="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" name="ImportResult" element="q15:ImportResult" />
+  </wsdl:message>
+  <wsdl:message name="importMunicipalServicesResponse_Headers">
+    <wsdl:part xmlns:q16="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" name="RequestHeader" element="q16:RequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="importOrganizationWorksRequest1">
+    <wsdl:part xmlns:q17="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/nsi/" name="importOrganizationWorksRequest" element="q17:importOrganizationWorksRequest" />
+  </wsdl:message>
+  <wsdl:message name="importOrganizationWorksRequest1_Headers">
+    <wsdl:part xmlns:q18="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" name="RequestHeader" element="q18:RequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="importOrganizationWorksResponse">
+    <wsdl:part xmlns:q19="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" name="ImportResult" element="q19:ImportResult" />
+  </wsdl:message>
+  <wsdl:message name="importOrganizationWorksResponse_Headers">
+    <wsdl:part xmlns:q20="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" name="RequestHeader" element="q20:RequestHeader" />
+  </wsdl:message>
+  <wsdl:portType name="INsi">
+    <wsdl:operation name="exportNsiList">
+      <wsdl:input wsaw:Action="http://tempuri.org/INsi/exportNsiList" name="exportNsiListRequest1" message="tns:exportNsiListRequest1" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INsi/exportNsiListResponse" name="exportNsiListResponse" message="tns:exportNsiListResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="exportNsiItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/INsi/exportNsiItem" name="exportNsiItemRequest1" message="tns:exportNsiItemRequest1" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INsi/exportNsiItemResponse" name="exportNsiItemResponse" message="tns:exportNsiItemResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="importAdditionalServices">
+      <wsdl:input wsaw:Action="http://tempuri.org/INsi/importAdditionalServices" name="importAdditionalServicesRequest1" message="tns:importAdditionalServicesRequest1" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INsi/importAdditionalServicesResponse" name="importAdditionalServicesResponse" message="tns:importAdditionalServicesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="importMunicipalServices">
+      <wsdl:input wsaw:Action="http://tempuri.org/INsi/importMunicipalServices" name="importMunicipalServicesRequest1" message="tns:importMunicipalServicesRequest1" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INsi/importMunicipalServicesResponse" name="importMunicipalServicesResponse" message="tns:importMunicipalServicesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="importOrganizationWorks">
+      <wsdl:input wsaw:Action="http://tempuri.org/INsi/importOrganizationWorks" name="importOrganizationWorksRequest1" message="tns:importOrganizationWorksRequest1" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INsi/importOrganizationWorksResponse" name="importOrganizationWorksResponse" message="tns:importOrganizationWorksResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_INsi" type="tns:INsi">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="exportNsiList">
+      <soap:operation soapAction="http://tempuri.org/INsi/exportNsiList" style="document" />
+      <wsdl:input name="exportNsiListRequest1">
+        <soap:header message="tns:exportNsiListRequest1_Headers" part="RequestHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="exportNsiListResponse">
+        <soap:header message="tns:exportNsiListResponse_Headers" part="RequestHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="exportNsiItem">
+      <soap:operation soapAction="http://tempuri.org/INsi/exportNsiItem" style="document" />
+      <wsdl:input name="exportNsiItemRequest1">
+        <soap:header message="tns:exportNsiItemRequest1_Headers" part="RequestHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="exportNsiItemResponse">
+        <soap:header message="tns:exportNsiItemResponse_Headers" part="RequestHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="importAdditionalServices">
+      <soap:operation soapAction="http://tempuri.org/INsi/importAdditionalServices" style="document" />
+      <wsdl:input name="importAdditionalServicesRequest1">
+        <soap:header message="tns:importAdditionalServicesRequest1_Headers" part="RequestHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="importAdditionalServicesResponse">
+        <soap:header message="tns:importAdditionalServicesResponse_Headers" part="RequestHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="importMunicipalServices">
+      <soap:operation soapAction="http://tempuri.org/INsi/importMunicipalServices" style="document" />
+      <wsdl:input name="importMunicipalServicesRequest1">
+        <soap:header message="tns:importMunicipalServicesRequest1_Headers" part="RequestHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="importMunicipalServicesResponse">
+        <soap:header message="tns:importMunicipalServicesResponse_Headers" part="RequestHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="importOrganizationWorks">
+      <soap:operation soapAction="http://tempuri.org/INsi/importOrganizationWorks" style="document" />
+      <wsdl:input name="importOrganizationWorksRequest1">
+        <soap:header message="tns:importOrganizationWorksRequest1_Headers" part="RequestHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="importOrganizationWorksResponse">
+        <soap:header message="tns:importOrganizationWorksResponse_Headers" part="RequestHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Nsi">
+    <wsdl:port name="BasicHttpBinding_INsi" binding="tns:BasicHttpBinding_INsi">
+      <soap:address location="http://localhost:3474/hcs-nsi/hcs-nsi.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

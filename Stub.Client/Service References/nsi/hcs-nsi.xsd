@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" elementFormDefault="qualified" targetNamespace="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:3474/hcs-nsi/hcs-nsi.svc?xsd=xsd2" namespace="http://www.w3.org/2000/09/xmldsig#" />
+  <xs:complexType name="BaseType">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://www.w3.org/2000/09/xmldsig#" minOccurs="0" maxOccurs="1" ref="q1:Signature" />
+    </xs:sequence>
+    <xs:attribute name="Id" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="BaseAsyncResponseType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseType">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="RequestState" type="xs:byte" />
+          <xs:element minOccurs="0" maxOccurs="1" name="MessageGUID" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestHeader">
+    <xs:complexType>
+      <xs:complexContent mixed="false">
+        <xs:extension base="tns:HeaderType">
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="SenderID" type="xs:string" />
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="HeaderType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MessageGUID" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ErrorMessage" type="tns:ErrorMessageType" />
+  <xs:complexType name="ErrorMessageType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="StackTrace" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="nsiRef">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Code" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="GUID" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransportGUID" type="xs:string" />
+  <xs:element name="OKEI" type="xs:string" />
+  <xs:element name="ImportResult">
+    <xs:complexType>
+      <xs:complexContent mixed="false">
+        <xs:extension base="tns:BaseType">
+          <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+              <xs:element minOccurs="0" maxOccurs="1" name="CommonResult" type="tns:CommonResultType" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="tns:ErrorMessageType" />
+            </xs:choice>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CommonResultType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="GUID" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TransportGUID" type="xs:string" />
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element minOccurs="0" maxOccurs="1" name="Error">
+          <xs:complexType>
+            <xs:complexContent mixed="false">
+              <xs:extension base="tns:ErrorMessageType" />
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="UniqueNumber" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="UpdateDate" type="xs:dateTime" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/nsi/" elementFormDefault="qualified" targetNamespace="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/nsi/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:3474/hcs-nsi/hcs-nsi.svc?xsd=xsd1" namespace="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" />
+  <xs:element name="exportNsiListRequest">
+    <xs:complexType>
+      <xs:complexContent mixed="false">
+        <xs:extension xmlns:q1="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" base="q1:BaseType" />
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="exportNsiListResult">
+    <xs:complexType>
+      <xs:complexContent mixed="false">
+        <xs:extension xmlns:q2="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" base="q2:BaseType">
+          <xs:sequence>
+            <xs:choice minOccurs="1" maxOccurs="1">
+              <xs:element minOccurs="0" maxOccurs="1" ref="q2:ErrorMessage" />
+              <xs:element minOccurs="0" maxOccurs="1" name="NsiList" type="tns:NsiListType" />
+            </xs:choice>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="NsiListType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NsiItemInfo" type="tns:NsiItemInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NsiItemInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="RegistryNumber" type="xs:positiveInteger" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Modified" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="exportNsiItemRequest">
+    <xs:complexType>
+      <xs:complexContent mixed="false">
+        <xs:extension xmlns:q3="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" base="q3:BaseType">
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="RegistryNumber" type="xs:positiveInteger" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ModifiedAfter" type="xs:dateTime" />
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="exportNsiItemResult">
+    <xs:complexType>
+      <xs:complexContent mixed="false">
+        <xs:extension xmlns:q4="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" base="q4:BaseType">
+          <xs:sequence>
+            <xs:choice minOccurs="1" maxOccurs="1">
+              <xs:element minOccurs="0" maxOccurs="1" ref="q4:ErrorMessage" />
+              <xs:element minOccurs="0" maxOccurs="1" name="NsiItem" type="tns:NsiItemType" />
+            </xs:choice>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="NsiItemType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="NsiItemRegistryNumber" type="xs:positiveInteger" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NsiElement" type="tns:NsiElementType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NsiElementType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Code" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="GUID" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Modified" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsActual" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NsiElementField" type="tns:NsiElementFieldType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ChildElement" type="tns:NsiElementType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NsiElementFieldType" abstract="true">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NsiElementStringFieldType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:NsiElementFieldType">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Value" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="NsiElementBooleanFieldType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:NsiElementFieldType">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Value" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="NsiElementIntegerFieldType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:NsiElementFieldType">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Value" type="xs:integer" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="NsiElementNsiRefFieldType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:NsiElementFieldType">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="NsiRef">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="NsiItemRegistryNumber" type="xs:positiveInteger" />
+                <xs:element xmlns:q5="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" minOccurs="0" maxOccurs="1" name="Ref" type="q5:nsiRef" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="NsiElementOkeiRefFieldType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:NsiElementFieldType">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Code" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="NsiElementFiasAddressRefFieldType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:NsiElementFieldType">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="NsiRef">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="Guid" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="aoGuid" type="xs:string" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="importAdditionalServicesRequest">
+    <xs:complexType>
+      <xs:complexContent mixed="false">
+        <xs:extension xmlns:q6="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" base="q6:BaseType">
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ImportAdditionalServiceType">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" ref="q6:TransportGUID" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="ElementGuid" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="AdditionalServiceTypeName" type="xs:string" />
+                  <xs:choice minOccurs="1" maxOccurs="1">
+                    <xs:element minOccurs="0" maxOccurs="1" ref="q6:OKEI" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="StringDimensionUnit" type="xs:string" />
+                  </xs:choice>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="RecoverAdditionalServiceType">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" ref="q6:TransportGUID" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="ElementGuid" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="DeleteAdditionalServiceType">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" ref="q6:TransportGUID" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="ElementGuid" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="importMunicipalServicesRequest">
+    <xs:complexType>
+      <xs:complexContent mixed="false">
+        <xs:extension xmlns:q7="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" base="q7:BaseType">
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ImportMainMunicipalService">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" ref="q7:TransportGUID" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="ElementGuid" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="MunicipalServiceRef" type="q7:nsiRef" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="GeneralNeeds" type="xs:boolean" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="MainMunicipalServiceName" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="MunicipalResourceRef" type="q7:nsiRef" />
+                  <xs:choice minOccurs="1" maxOccurs="1">
+                    <xs:element minOccurs="0" maxOccurs="1" name="SortOrder" type="xs:string" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="SortOrderNotDefined" type="xs:boolean" />
+                  </xs:choice>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="RecoverMainMunicipalService">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" ref="q7:TransportGUID" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="ElementGuid" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="HierarchyRecover" type="xs:boolean" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="DeleteMainMunicipalService">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" ref="q7:TransportGUID" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="ElementGuid" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="importOrganizationWorksRequest">
+    <xs:complexType>
+      <xs:complexContent mixed="false">
+        <xs:extension xmlns:q8="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" base="q8:BaseType">
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ImportOrganizationWork" type="tns:ImportOrganizationWorkType" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="RecoverOrganizationWork">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" ref="q8:TransportGUID" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="ElementGuid" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="HierarchyRecover" type="xs:boolean" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="DeleteOrganizationWork">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" ref="q8:TransportGUID" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="ElementGuid" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ImportOrganizationWorkType">
+    <xs:sequence>
+      <xs:element xmlns:q9="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" minOccurs="0" maxOccurs="1" ref="q9:TransportGUID" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ElementGuid" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="WorkName" type="xs:string" />
+      <xs:element xmlns:q10="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" minOccurs="0" maxOccurs="1" name="ServiceTypeRef" type="q10:nsiRef" />
+      <xs:element xmlns:q11="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" minOccurs="0" maxOccurs="unbounded" name="RequiredServiceRef" type="q11:nsiRef" />
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element xmlns:q12="http://dom.gosuslugi.ru/schema/integration/8.5.0.2/" minOccurs="0" maxOccurs="1" ref="q12:OKEI" />
+        <xs:element minOccurs="0" maxOccurs="1" name="StringDimensionUnit" type="xs:string" />
+      </xs:choice>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ImportOrganizationWork" type="tns:ImportOrganizationWorkType" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

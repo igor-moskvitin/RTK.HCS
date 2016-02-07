@@ -90,6 +90,7 @@
       <DependentUpon>hcs-nsi.svc</DependentUpon>
     </Compile>
     <Compile Include="hcs-nsi\Ihcs-nsi.cs" />
+    <Compile Include="Model\Helper.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

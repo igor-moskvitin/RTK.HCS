@@ -5,6 +5,11 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stub", "Stub\Stub.csproj", "{E7DE32DA-2613-4289-8D75-4E0BD434CEAE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stub.Client", "Stub.Client\Stub.Client.csproj", "{645CF946-75B0-4F66-867C-8A78DFEFFC0F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E7DE32DA-2613-4289-8D75-4E0BD434CEAE} = {E7DE32DA-2613-4289-8D75-4E0BD434CEAE}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +20,10 @@ Global
 		{E7DE32DA-2613-4289-8D75-4E0BD434CEAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7DE32DA-2613-4289-8D75-4E0BD434CEAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7DE32DA-2613-4289-8D75-4E0BD434CEAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{645CF946-75B0-4F66-867C-8A78DFEFFC0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{645CF946-75B0-4F66-867C-8A78DFEFFC0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{645CF946-75B0-4F66-867C-8A78DFEFFC0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{645CF946-75B0-4F66-867C-8A78DFEFFC0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

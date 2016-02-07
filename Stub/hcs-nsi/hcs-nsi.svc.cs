@@ -7,6 +7,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Ploeh.AutoFixture;
 using Ploeh.AutoFixture.AutoMoq;
+using Ploeh.AutoFixture.Kernel;
+using System.Xml;
+using Moq;
+using Stub.Model;
+
 
 namespace Stub.hcs_nsi
 {
@@ -18,12 +23,32 @@ namespace Stub.hcs_nsi
 
         public Nsi()
         {
-            //fixture.Customizations.Add(new AutoMoqCustomization());
+            fixture.Customizations.Add(new TypeRelay(typeof(XmlNode),typeof(Helper)));
+            fixture.Customizations.Add(new TypeRelay(typeof(XmlResolver),typeof(Resolver)));
+
+            fixture.Customize(new AutoConfiguredMoqCustomization());
         }
 
         public exportNsiListResponse exportNsiList(exportNsiListRequest1 request)
         {
-            return fixture.Create<exportNsiListResponse>();
+            return 
+                new exportNsiListResponse()
+                {
+                    exportNsiListResult = new exportNsiListResult
+                    {
+                        Id = "1111111111111111111",
+                        //Item = "Hello!"
+                    },
+
+
+                    RequestHeader = new RequestHeader
+                {
+                    MessageGUID=Guid.NewGuid().ToString(),
+                    Date = DateTime.Now,
+                    SenderID ="!11"
+                }
+                };
+            //return fixture.Create<exportNsiListResponse>();
         }
 
         public Task<exportNsiListResponse> exportNsiListAsync(exportNsiListRequest1 request)
