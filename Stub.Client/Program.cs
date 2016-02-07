@@ -17,7 +17,7 @@ namespace Stub.Client
                 var header = new RequestHeader();
                 var request = new exportNsiListRequest();
                 var result = client.exportNsiList(ref header, request);
-                Console.WriteLine("Request id is {0}", request.Id);
+                Console.WriteLine("result id is {0}", result.Id);
             }
             Console.WriteLine("Client will be terminated.");
             Console.ReadKey();

@@ -19,14 +19,24 @@ namespace Stub.hcs_nsi
     // NOTE: In order to launch WCF Test Client for testing this service, please select hcs-nsi.svc or hcs-nsi.svc.cs at the Solution Explorer and start debugging.
     public class Nsi : INsi
     {
-        Fixture fixture = new Fixture();
+
+        //todo find out how to use fixture in this case. have a bunch of usolved problem's with abstract class realisation
+        //Fixture fixture = new Fixture();
+        private RequestHeader header;
+
 
         public Nsi()
         {
-            fixture.Customizations.Add(new TypeRelay(typeof(XmlNode),typeof(Helper)));
-            fixture.Customizations.Add(new TypeRelay(typeof(XmlResolver),typeof(Resolver)));
+            //fixture.Customizations.Add(new TypeRelay(typeof(XmlNode),typeof(Helper)));
+            //fixture.Customizations.Add(new TypeRelay(typeof(XmlResolver),typeof(Resolver)));
+            //fixture.Customize(new AutoConfiguredMoqCustomization());
+            header = new RequestHeader
+            {
+                MessageGUID = Guid.NewGuid().ToString(),
+                Date = DateTime.Now,
+                SenderID = "fake service"
+            };
 
-            fixture.Customize(new AutoConfiguredMoqCustomization());
         }
 
         public exportNsiListResponse exportNsiList(exportNsiListRequest1 request)
@@ -37,18 +47,9 @@ namespace Stub.hcs_nsi
                     exportNsiListResult = new exportNsiListResult
                     {
                         Id = "1111111111111111111",
-                        //Item = "Hello!"
                     },
-
-
-                    RequestHeader = new RequestHeader
-                {
-                    MessageGUID=Guid.NewGuid().ToString(),
-                    Date = DateTime.Now,
-                    SenderID ="!11"
-                }
+                    RequestHeader = header
                 };
-            //return fixture.Create<exportNsiListResponse>();
         }
 
         public Task<exportNsiListResponse> exportNsiListAsync(exportNsiListRequest1 request)
@@ -58,7 +59,11 @@ namespace Stub.hcs_nsi
 
         public exportNsiItemResponse exportNsiItem(exportNsiItemRequest1 request)
         {
-            throw new NotImplementedException();
+            return new exportNsiItemResponse
+            {
+                RequestHeader = header,
+                exportNsiItemResult = new exportNsiItemResult { Id="1"}
+            };
         }
 
         public Task<exportNsiItemResponse> exportNsiItemAsync(exportNsiItemRequest1 request)
@@ -68,7 +73,11 @@ namespace Stub.hcs_nsi
 
         public importAdditionalServicesResponse importAdditionalServices(importAdditionalServicesRequest1 request)
         {
-            throw new NotImplementedException();
+            return new importAdditionalServicesResponse
+            {
+                RequestHeader = header,
+                ImportResult = new ImportResult {Id = "2"}
+            };
         }
 
         public Task<importAdditionalServicesResponse> importAdditionalServicesAsync(importAdditionalServicesRequest1 request)
@@ -78,7 +87,11 @@ namespace Stub.hcs_nsi
 
         public importMunicipalServicesResponse importMunicipalServices(importMunicipalServicesRequest1 request)
         {
-            throw new NotImplementedException();
+            return new importMunicipalServicesResponse
+            {
+                RequestHeader = header,
+                ImportResult = new ImportResult {Id = "2"}
+            };
         }
 
         public Task<importMunicipalServicesResponse> importMunicipalServicesAsync(importMunicipalServicesRequest1 request)
@@ -88,7 +101,11 @@ namespace Stub.hcs_nsi
 
         public importOrganizationWorksResponse importOrganizationWorks(importOrganizationWorksRequest1 request)
         {
-            throw new NotImplementedException();
+            return new importOrganizationWorksResponse
+            {
+                RequestHeader = header,
+                ImportResult = new ImportResult {Id = "3"}
+            };
         }
 
         public Task<importOrganizationWorksResponse> importOrganizationWorksAsync(importOrganizationWorksRequest1 request)
